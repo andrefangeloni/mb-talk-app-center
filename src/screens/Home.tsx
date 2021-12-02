@@ -1,6 +1,8 @@
 import React from 'react';
 import { Alert } from 'react-native';
 
+import StyledModal from '../components/Modal';
+
 import api from '../services/api';
 
 import * as S from './styles';
@@ -24,6 +26,8 @@ const Home: React.FC = () => {
   const [page, setPage] = React.useState(2);
   const [totalPages, setTotalPages] = React.useState(0);
   const [movies, setMovies] = React.useState<Movie[]>([]);
+  const [isVisibleModal, setIsVisibleModal] = React.useState(false);
+  const [selectedMovie, setSelectedMovie] = React.useState({} as Movie);
 
   React.useEffect(() => {
     try {
@@ -39,25 +43,26 @@ const Home: React.FC = () => {
     }
   }, []);
 
-  const onLoadMoreMovies = () => {
+  const onLoadMoreMovies = async () => {
     if (page > totalPages) {
       return;
     }
 
     try {
-      const loadMovies = async () => {
-        const { data } = await api.get<MovieAPI>('/movie/popular', {
-          params: { page },
-        });
+      const { data } = await api.get<MovieAPI>('/movie/popular', {
+        params: { page },
+      });
 
-        setPage((prevState) => prevState + 1);
-        setMovies([...movies, ...data.results]);
-      };
-
-      loadMovies();
+      setPage((prevState) => prevState + 1);
+      setMovies([...movies, ...data.results]);
     } catch (err) {
       Alert.alert('Error', 'Error on loading movies');
     }
+  };
+
+  const onMoviePressed = (movie: Movie) => {
+    setIsVisibleModal(true);
+    setSelectedMovie(movie);
   };
 
   return (
@@ -71,10 +76,17 @@ const Home: React.FC = () => {
         onEndReached={() => onLoadMoreMovies()}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
-          <S.Touchable>
+          <S.Touchable onPress={() => onMoviePressed(item)}>
             <S.Poster poster={item.poster_path} />
           </S.Touchable>
         )}
+      />
+
+      <StyledModal
+        isVisible={isVisibleModal}
+        title={selectedMovie.title}
+        description={selectedMovie.overview}
+        onBackdropPress={() => setIsVisibleModal(false)}
       />
     </S.Container>
   );
