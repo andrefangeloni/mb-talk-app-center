@@ -3,4 +3,6 @@ export const colors = {
   title: '#fff',
   regularText: '#000',
   modalBackground: '#fff',
+  modalTitle: '#000',
+  modalDescription: '#000',
 };

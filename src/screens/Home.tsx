@@ -1,5 +1,6 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import { Alert, Platform } from 'react-native';
+import AppCenterAnalytics from 'appcenter-analytics';
 
 import StyledModal from '../components/Modal';
 
@@ -63,6 +64,12 @@ const Home: React.FC = () => {
   const onMoviePressed = (movie: Movie) => {
     setIsVisibleModal(true);
     setSelectedMovie(movie);
+
+    if (Platform.OS === 'android') {
+      AppCenterAnalytics.trackEvent('MoviePressed', {
+        title: movie.title,
+      });
+    }
   };
 
   return (
