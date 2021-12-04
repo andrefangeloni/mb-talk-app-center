@@ -2,6 +2,8 @@ import React from 'react';
 import { Alert } from 'react-native';
 import AppCenterAnalytics from 'appcenter-analytics';
 
+import { APP_VERSION } from '../../env.json';
+
 import StyledModal from '../components/Modal';
 
 import api from '../services/api';
@@ -86,6 +88,10 @@ const Home: React.FC = () => {
           </S.Touchable>
         )}
       />
+
+      <S.FooterText>
+        Versão do App: <S.Bold>{APP_VERSION}</S.Bold>
+      </S.FooterText>
 
       <StyledModal
         isVisible={isVisibleModal}

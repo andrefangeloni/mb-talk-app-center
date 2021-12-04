@@ -42,3 +42,13 @@ export const Poster = styled.Image.attrs(({ poster }: PosterProps) => ({
   height: 290px;
   margin-bottom: 16px;
 `;
+
+export const FooterText = styled.Text`
+  align-self: center;
+  margin-top: 8px;
+  color: ${colors.footerText};
+`;
+
+export const Bold = styled.Text`
+  font-weight: bold;
+`;
