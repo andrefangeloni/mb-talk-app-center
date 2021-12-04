@@ -8,6 +8,7 @@
     "start": "npx react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "pods": "cd ios && pod install && cd ..",
     "aab": "cd android && ./gradlew bundleRelease && cd ..",
     "apk": "cd android && ./gradlew assembleRelease && cd ..",
     "codepush-android": "appcenter codepush release-react -a andrefangeloni/mb-talk-android -m -d Production"
