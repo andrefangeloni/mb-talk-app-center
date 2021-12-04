@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
+import CodePush from 'react-native-code-push';
 
 import Home from './screens/Home';
 
@@ -10,4 +11,6 @@ const App = () => (
   </>
 );
 
-export default App;
+export default CodePush({
+  checkFrequency: CodePush.CheckFrequency.ON_APP_START,
+})(App);
