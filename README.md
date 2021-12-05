@@ -2,7 +2,6 @@
 
 ## Requirements
 [React Native CLI](https://reactnative.dev/docs/environment-setup) </br>
-[App Center CLI](https://docs.microsoft.com/en-us/appcenter/cli/)
 
 ### Installation
 Open terminal and run `npm install -g appcenter-cli`
