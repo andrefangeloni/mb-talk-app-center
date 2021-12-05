@@ -1,7 +1,9 @@
 # App Center Setup
 
 ## Requirements
-[React Native CLI](https://reactnative.dev/docs/environment-setup) </br>
+- [React Native CLI](https://reactnative.dev/docs/environment-setup) </br>
+
+- Sign Up on [App Center](https://appcenter.ms/) and create a new App.
 
 ### Installation
 Open terminal and run `npm install -g appcenter-cli`
