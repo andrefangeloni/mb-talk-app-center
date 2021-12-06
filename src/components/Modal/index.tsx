@@ -8,6 +8,7 @@ interface ModalProps {
   isVisible: boolean;
   description: string;
   onBackdropPress: () => void;
+  onBackButtonPress: () => void;
 }
 
 const StyledModal: React.FC<ModalProps> = ({
@@ -15,8 +16,13 @@ const StyledModal: React.FC<ModalProps> = ({
   isVisible,
   description,
   onBackdropPress,
+  onBackButtonPress,
 }) => (
-  <Modal isVisible={isVisible} onBackdropPress={onBackdropPress}>
+  <Modal
+    isVisible={isVisible}
+    onBackdropPress={onBackdropPress}
+    onBackButtonPress={onBackButtonPress}
+  >
     <S.Container>
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>

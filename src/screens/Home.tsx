@@ -35,7 +35,7 @@ const Home: React.FC = () => {
   React.useEffect(() => {
     try {
       const loadMovies = async () => {
-        const { data } = await api.get<MovieAPI>('/movie/top_rated');
+        const { data } = await api.get<MovieAPI>('/movie/popular');
         setMovies(data.results);
         setTotalPages(data.total_pages);
       };
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
     }
 
     try {
-      const { data } = await api.get<MovieAPI>('/movie/top_rated', {
+      const { data } = await api.get<MovieAPI>('/movie/popular', {
         params: { page },
       });
 
@@ -74,7 +74,7 @@ const Home: React.FC = () => {
 
   return (
     <S.Container>
-      <S.Title>Top Rated Movies</S.Title>
+      <S.Title>Popular Movies</S.Title>
 
       <S.MovieList
         data={movies}
@@ -98,6 +98,7 @@ const Home: React.FC = () => {
         title={selectedMovie.title}
         description={selectedMovie.overview}
         onBackdropPress={() => setIsVisibleModal(false)}
+        onBackButtonPress={() => setIsVisibleModal(false)}
       />
     </S.Container>
   );
