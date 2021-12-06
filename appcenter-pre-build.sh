@@ -1,0 +1,1 @@
+echo '{ "APP_VERSION": "$APP_VERSION", "API_KEY": "$API_KEY" }' > env.json
