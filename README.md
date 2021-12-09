@@ -3,15 +3,20 @@
 ## Requirements
 - [React Native CLI](https://reactnative.dev/docs/environment-setup) </br>
 
+- [Yarn](https://yarnpkg.com) </br>
+
 - Sign Up on [App Center](https://appcenter.ms/) and create a new App.
 
+## How to use this repo
+- Clone this repo: `git@github.com:andrefangeloni/mb-talk-app-center.git`;
+- Navigate to the downloaded folder and then run `yarn` on terminal to install dependencies;
+- Install Pods: `cd ios && pod install && cd ..` (iOS only);
+- Rename `env-template.json` to `env.json` and paste your `API_KEY` generated on [TMDB](https://www.themoviedb.org/settings/api);
+- Follow the instructions below, generate your own api's keys and paste on the respective files.
 ### Installation
-Open terminal and run `npm install -g appcenter-cli`
-
-### Logging in
-1 - Open terminal. </br>
-2 - Run `appcenter login`. This opens a browser and generates a new <b>API token</b>. </br>
-3- Copy the <b>API token</b> from the browser, and paste this into terminal.
+- Open terminal and run `npm install -g appcenter-cli`
+- Run `appcenter login`. This opens a browser and generates a new <b>API token</b>. </br>
+- Copy the <b>API token</b> from the browser, and paste this into terminal.
 
 ## Adding dependencies on your project
 `yarn add appcenter appcenter-analytics appcenter-crashes react-native-code-push`
@@ -170,6 +175,9 @@ to:
 <string>{DeploymentKey}</string>
 </dict>
 ```
+
+## CodePush Usage
+- Run the following command on terminal: `appcenter codepush release-react -a <owner>/<project_name> -m -d Production`
 
 # :mortar_board: LICENSE
 
