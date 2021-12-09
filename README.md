@@ -177,7 +177,7 @@ to:
 ```
 
 ## CodePush Usage
-- Run the following command on terminal: `appcenter codepush release-react -a <owner>/<project_name> -m -d Production`
+- Run on terminal: `appcenter codepush release-react -a <owner>/<project_name> -m -d Production`
 
 # :mortar_board: LICENSE
 
