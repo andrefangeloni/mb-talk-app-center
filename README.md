@@ -1,5 +1,8 @@
 # App Center Setup
 
+## Download APK
+[Click here](https://install.appcenter.ms/users/andrefangeloni/apps/mb-talk-android/distribution_groups/mb%20talk)
+
 ## Requirements
 - [React Native CLI](https://reactnative.dev/docs/environment-setup) </br>
 
