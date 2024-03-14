@@ -53,7 +53,6 @@ project(':react-native-code-push').projectDir = new File(rootProject.projectDir,
 
 ```java
 ...
-apply from: "../../node_modules/react-native/react.gradle"
 apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 ...
 ```
@@ -79,7 +78,7 @@ public class MainApplication extends Application implements ReactApplication {
 }
 ```
 
-5 - Go to [AppCenter](https://appcenter.ms/apps) > Choose your App > Distribute > CodePush > Set to Production. 
+5 - Go to [AppCenter](https://appcenter.ms/apps) > Create your React Native Android App > Distribute > CodePush > Set to Production. 
 
 6 - Open the terminal and run `appcenter apps list` to check the `<ownerName>/<appName>` </br>
 6.1 - Run `appcenter codepush deployment list -a <ownerName>/<appName> -k` </br>
@@ -91,20 +90,8 @@ public class MainApplication extends Application implements ReactApplication {
 <resources>
   <string name="app_name">{app_name}</string>
   <string moduleConfig="true" name="CodePushDeploymentKey">{DeploymentKey}</string>
-  <string
-    moduleConfig="true"
-    translatable="false"
-    name="appCenterCrashes_whenToSendCrashes"
-  >
-    DO_NOT_ASK_JAVASCRIPT
-  </string>
-  <string
-    moduleConfig="true"
-    translatable="false"
-    name="appCenterAnalytics_whenToEnableAnalytics"
-  >
-    ALWAYS_SEND
-  </string>
+  <string moduleConfig="true" translatable="false" name="appCenterCrashes_whenToSendCrashes">DO_NOT_ASK_JAVASCRIPT</string>
+  <string moduleConfig="true" translatable="false" name="appCenterAnalytics_whenToEnableAnalytics">ALWAYS_SEND</string>
 </resources>
 ```
 
@@ -148,7 +135,7 @@ from:
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
   #if DEBUG
-    return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+    return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
   #else
     return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
   #endif
@@ -161,18 +148,19 @@ to:
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
   #if DEBUG
-    return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+    return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
   #else
     return [CodePush bundleURL];
   #endif
 }
 ```
 
-4 - Open the terminal and run `appcenter apps list` to check the `<ownerName>/<appName>` </br>
-4.1 - Run `appcenter codepush deployment list -a <ownerName>/<appName> -k` </br>
-4.2 - Copy the <b>Production</b> Deployment Key </br>
+4 - Go to [AppCenter](https://appcenter.ms/apps) > Create your React Native iOS App > Distribute > CodePush > Set to Production.
+5 - Open the terminal and run `appcenter apps list` to check the `<ownerName>/<appName>` </br>
+5.1 - Run `appcenter codepush deployment list -a <ownerName>/<appName> -k` </br>
+5.2 - Copy the <b>Production</b> Deployment Key </br>
 
-5 - Open `Info.plist` file, add new entry named <b>CodePushDeploymentKey</b> and paste the value.
+6 - Open `Info.plist` file, add new entry named <b>CodePushDeploymentKey</b> and paste the value.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
