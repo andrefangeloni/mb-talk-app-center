@@ -88,7 +88,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 ```xml
 <resources>
-  <string name="app_name">{app_name}</string>
+  ...
   <string moduleConfig="true" name="CodePushDeploymentKey">{DeploymentKey}</string>
   <string moduleConfig="true" translatable="false" name="appCenterCrashes_whenToSendCrashes">DO_NOT_ASK_JAVASCRIPT</string>
   <string moduleConfig="true" translatable="false" name="appCenterAnalytics_whenToEnableAnalytics">ALWAYS_SEND</string>
