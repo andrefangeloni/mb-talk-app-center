@@ -155,7 +155,7 @@ to:
 }
 ```
 
-4 - Go to [AppCenter](https://appcenter.ms/apps) > Create your React Native iOS App > Distribute > CodePush > Set to Production.
+4 - Go to [AppCenter](https://appcenter.ms/apps) > Create your React Native iOS App > Distribute > CodePush > Set to Production. </br>
 5 - Open the terminal and run `appcenter apps list` to check the `<ownerName>/<appName>` </br>
 5.1 - Run `appcenter codepush deployment list -a <ownerName>/<appName> -k` </br>
 5.2 - Copy the <b>Production</b> Deployment Key </br>
